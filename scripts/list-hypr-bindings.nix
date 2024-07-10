@@ -1,5 +1,9 @@
 { pkgs, host, ... }:
 
+let
+  inherit (import ../hosts/${host}/variables.nix) terminal browser;
+in
+
 pkgs.writeShellScriptBin "list-hypr-bindings" ''
   yad --width=800 --height=650 \
   --center \
